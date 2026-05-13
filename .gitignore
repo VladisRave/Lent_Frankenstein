@@ -1,0 +1,20 @@
+*.ipynb_checkpoints
+all_frames/
+lenta_dataset.zip
+lenta_dataset/
+price_tag/
+*.pt
+runs/
+*.yaml
+
+# Env
+.env
+.venv/
+env/
+venv/
+.idea/
+*.swp
+
+# System
+.DS_Store
+Thumbs.db
