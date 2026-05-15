@@ -8,7 +8,6 @@ runs/
 *.yaml
 
 # Env
-.env
 .venv/
 env/
 venv/
@@ -18,3 +17,8 @@ venv/
 # System
 .DS_Store
 Thumbs.db
+
+# Files
+/dataset
+/raw_data
+/runs
