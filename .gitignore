@@ -8,6 +8,7 @@ runs/
 *.yaml
 
 # Env
+.env
 .venv/
 env/
 venv/
