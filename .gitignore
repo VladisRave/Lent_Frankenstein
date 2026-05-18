@@ -1,4 +1,5 @@
 *.ipynb_checkpoints
+*.ipynb
 all_frames/
 lenta_dataset.zip
 lenta_dataset/
