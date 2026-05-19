@@ -3,24 +3,15 @@ import torch
 from pathlib import Path
 import config
 
-# =========================
-# GPU INFO
-# =========================
 
 print("CUDA:", torch.cuda.is_available())
 
 if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
 
-# =========================
-# LOAD MODEL
-# =========================
-
 model = YOLO(config.MODEL_NAME)
 
-# =========================
-# TRAIN
-# =========================
+
 DATA_PATH = (Path(__file__).parent.parent.resolve() / "data.yaml").resolve()
 
 print("DATA PATH:", DATA_PATH)
@@ -84,7 +75,6 @@ model.train(
     copy_paste=0.0
 )
 
-# VALIDATION
 
 metrics = model.val()
 

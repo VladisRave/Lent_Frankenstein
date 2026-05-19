@@ -71,9 +71,19 @@ def enhance_crop(img):
     if img is None or img.size == 0:
         return img
 
+    # масштабирование (если мелкий текст)
     h, w = img.shape[:2]
     if max(h, w) < 700:
         img = cv2.resize(img, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
+
+    # CLAHE
+    lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(lab)
+
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    l = clahe.apply(l)
+
+    img = cv2.cvtColor(cv2.merge([l, a, b]), cv2.COLOR_LAB2BGR)
 
     return img
 
@@ -90,7 +100,7 @@ def run_ocr(crop):
 
 
 def parse_qr(text):
-    result = {v: "нет" for v in QR_KEYS.values()}
+    result = {v: "" for v in QR_KEYS.values()}
 
     for part in text.split(";"):
         if "=" in part:
@@ -114,15 +124,15 @@ def extract_prices(text):
     prices = [p.replace(",", ".") for p in prices]
 
     return {
-        "price_default": prices[0] if len(prices) > 0 else "нет",
-        "price_card": prices[1] if len(prices) > 1 else "нет",
-        "price_discount": prices[2] if len(prices) > 2 else "нет",
+        "price_default": prices[0] if len(prices) > 0 else "",
+        "price_card": prices[1] if len(prices) > 1 else "",
+        "price_discount": prices[2] if len(prices) > 2 else "",
     }
 
 
 def extract_barcode(text):
     found = BARCODE_RE.findall(text)
-    return found[0] if found else "нет"
+    return found[0] if found else ""
 
 
 def detect_color(crop):
