@@ -7,8 +7,13 @@ from ultralytics import YOLO
 from paddleocr import PaddleOCR
 from pyzbar.pyzbar import decode
 from tqdm import tqdm
+import argparse
 
-VIDEO_DIR = Path("lenta_dataset/Unlabeled")
+parser = argparse.ArgumentParser()
+parser.add_argument("--video_dir", type=str, required=True, help="Path to videos folder")
+args = parser.parse_args()
+
+VIDEO_DIR = Path(args.video_dir)
 MODEL_PATH = "best.pt"
 OUTPUT_CSV = "submission.csv"
 
