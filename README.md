@@ -18,15 +18,16 @@ QR-код,
 
 Основная цель — преобразовать поток видео в структурированную таблицу для дальнейшего анализа.
 
-## Используемый стек:
-Python: 3.12
-OpenCV
-YOLOv11
-PaddleOCR
-pyzbar
-pandas
-numpy
-(необходима cuda 12.1+)
+## Используемый стек
+
+- Python 3.12
+- OpenCV
+- YOLOv11
+- PaddleOCR
+- pyzbar
+- pandas
+- numpy
+- CUDA 12.1+
 
 ## Архитектура:
 
@@ -59,8 +60,6 @@ pip install -r requirements.txt
 ## Генерация данных
 
 python generate_data/main.py
-
-Доп: Скачивание файлов для обучения если нужно дообучить модель.
 
 ## Запуск обучения YOLO
 
