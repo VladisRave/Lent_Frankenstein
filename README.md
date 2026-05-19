@@ -45,7 +45,9 @@ Lent_Frankenstein/
 ├── infer/
 │   └── pipeline.py - инференс видео: детекция, OCR, и вывод итогового submission.csv
 ├── utils/
-│   ├── config.py - конфиг для создания поддиректорий
+│    └── config.py - конфиг для создания поддиректорий
+├── yolo_train/
+│   ├── config.py - конфиг с параметрами для обучения YOLO
 │   └── train.py - файл для тренировки YOLO
 ├── requirements.txt
 └── README.md
