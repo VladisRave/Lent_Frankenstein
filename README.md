@@ -34,21 +34,21 @@ Preprocessing Data -> Detector(YOLOv11) -> Crop Images -> OCR + QR (PaddleOCR + 
 
 ## Структура проекта
 
+```text
 Lent_Frankenstein/
 ├── generate_data/
-│   ├── download_extra.py - скачивание дополнительных данных с Roboflow и HunggingFace (для установки нужно быть зарегистрированным на этих сайтах)
+│   ├── download_extra.py - скачивание дополнительных данных с Roboflow и HuggingFace
 │   ├── generate_dataset.py - генерирование формата датасета для обучения YOLO
 │   ├── main.py - основной файл генерации данных
 │   └── prepare_unified_yolo.py - объединение всех датасетов и приведение к нужному формату координат (x_center, y_center, width, height)
 ├── infer/
-│   └── pipeline.py - инференс видео: детекция, ocr, и вывод итогового submission.csv
+│   └── pipeline.py - инференс видео: детекция, OCR, и вывод итогового submission.csv
 ├── utils/
-│   └── config.py - конфиг для создания поддиректорий, определения текущей директории
-├── utils/
-│   ├── train.py - файл для тренировки YOLO на обучающей выборке
-│   └── config.py - конфиг с параметрами для обучения YOLO
+│   ├── config.py - конфиг для создания поддиректорий
+│   └── train.py - файл для тренировки YOLO
 ├── requirements.txt
 └── README.md
+```
 
 ## Установка окружения 
 
